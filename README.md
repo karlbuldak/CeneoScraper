@@ -1,18 +1,18 @@
 # CeneoScraper
 
-## Struktura opinii w serwisie [Ceneo.pl](https://www.ceneo.pl/)
+## Struktura opinii w serwisie [Ceneo.pl](https://wwww.ceneo.pl/)
 
 |Składowa|Selektor|Nazwa zmiennej|Typ zmiennej|
-|--------|--------|----- --------|------------|
-|opinia|div.js_product-review|||
-|identyfikacja opinii|"div.js_product-review \["data-entry-id"\]"|||
-|autor opinii|span.user-post__author-name|||
-|rekomendacja|span.user-post__author-recomendation > em|||
-|liczba gwiazdek|span.user-post__score-count|||
-|treść opinii|div.user-post__text|||
-|liczba zalet|div.review-feature__item ~ div.review-feature_item|||
-|liczba wad||||
-|dla ilu osób przydatna|span[id^="votes-yes"]|||
-|dla ilu osób nieprzydatna|span[id^="votes-no"]|||
-|data wystawienia opinii|span.user-post__published > time:nth-child(1)["datetime"]|||
-|data zakupu|span.user-post__published > time:nth-child(2)["datetime"]|||
+|--------|--------|--------------|------------|
+|opinia|div.js_product-review|opinion||
+|identyfikator opinii|div.js_product-review\["data-entry-id"\]|opinion_id||
+|autor opinii|span.user-post__author-name|author||
+|rekomendacja|span.user-post__author-recomendation > em|reccomendation||
+|liczba gwiazdek|span.user-post__score-count|stars||
+|treść opinii|div.user-post__text|content||
+|lista zalet|div[class$="positives"]~div.review-feature__item|pros||
+|lista wad|div[class$="negatives"]~div.review-feature__item|cons||
+|dla ilu osób przydatna|span[id^="votes-yes"]|useful||
+|dla ilu osób nieprzydatna|span[id^="votes-no"]|useless||
+|data wystawienia opinii|span.user-post__published > time:nth-child(1)["datetime"]|publish_date||
+|data zakupu|span.user-post__published > time:nth-child(2)["datetime"]|purchase_date||
