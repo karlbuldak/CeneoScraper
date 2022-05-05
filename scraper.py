@@ -3,7 +3,9 @@ import requests
 import json
 from bs4 import BeautifulSoup
 #zmien zeby bylo na input urla 
-url = 'https://www.ceneo.pl/63490289#tab=reviews'
+url = input("Wprowadź link do produktu: ")
+numeric_filter = filter(str.isdigit, url)
+numeric_string = "".join(numeric_filter)
 all_opinions = []
 while(url):
     response=requests.get(url)
@@ -53,5 +55,5 @@ while(url):
         url = None
 
 
-    with open("opinions/63490289.json", 'w', encoding='UTF_8') as jf:
+    with open("opinions/" + numeric_string + ".json", 'w', encoding='UTF_8') as jf:
         json.dump(all_opinions, jf, indent=4, ensure_ascii=False)
